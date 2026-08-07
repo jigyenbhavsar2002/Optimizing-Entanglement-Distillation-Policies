@@ -2,7 +2,7 @@
 
 For the mathematical formulation underlying this implementation and analysis of the results, please refer to our paper (arXiv:2606.14908).
 
-We formulate the problem of finding optimal entanglement distillation policies as a Markov decision process (MDP), with the objective of minimizing the expected waiting time required to obtain an entangled pair with fidelity at least fT. The resulting MDP is solved exactly using value iteration. We compare the resulting optimal policy against three baseline policies from literature: **pumping**, **nested**, and
+We formulate the problem of finding optimal entanglement distillation policies as a Markov decision process (MDP), with the objective of minimizing the expected waiting time required to obtain an entangled pair with fidelity at least `f_T`. The resulting MDP is solved exactly using value iteration. We compare the resulting optimal policy against three baseline policies from literature: **pumping**, **nested**, and
 **greedy** policies . Below we explain how to use our code to
 build the MDP, find optimal policies, evaluate the baseline policies, and reproduce the
 results shown in our paper.
