@@ -108,18 +108,16 @@ Both are provided so results can be cross-checked against each other.
 
 ## Citing this work
 
-See [`CITATION.cff`](CITATION.cff), or cite:
+Cite:
 
 ```bibtex
-@article{yourbibkey,
-  title   = {Optimizing Entanglement Distillation Policies via Markov Decision Process Formulation},
-  author  = {Your Name and Coauthors},
-  journal = {Journal name},
-  year    = {2026},
-  doi     = {10.xxxx/xxxxx}
+@misc{bhavsar2026optimizingentanglementdistillationpolicies,
+      title={Optimizing Entanglement Distillation Policies via Markov Decision Process Formulation}, 
+      author={Jigyen Bhavsar and Rajni Bala and Siddhartha Santra},
+      year={2026},
+      eprint={2606.14908},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2606.14908}, 
 }
 ```
-
-## License
-
-MIT (see [`LICENSE`](LICENSE)) — see also the Zenodo archive: [DOI badge/link once created].
