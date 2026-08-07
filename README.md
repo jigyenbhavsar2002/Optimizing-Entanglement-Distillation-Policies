@@ -11,8 +11,8 @@ The main variables used in this project are the following:
 
 * `p`: probability of successful entanglement generation.
 * `m`: number of quantum memories per node.
-* `f0`: initial fidelity of a freshly generated entangled pair.
-* `fT`: Target fidelity to be achieved.
+* `f_0`: initial fidelity of a freshly generated entangled pair.
+* `f_T`: Target fidelity to be achieved.
 
 ## MDP construction and optimal policy (value iteration)
 
@@ -43,34 +43,20 @@ The following script and notebook can be used to generate the results that appea
 paper. Cached grid outputs are stored under `data/results/` so that figures can be
 regenerated without rerunning every parameter sweep from scratch.
 
-* `scripts/reproduce_figures.py`: sweeps over `(p, f0)` for fixed `m`, `f0`, and `fT`, evaluates
-  the optimal policy and all three baselines at each point, and plots
-  `(T_min(baselines) - T_opt) / T_min(baselines)` as a heatmap over the `(p, f0)` plane —
-  the properly-normalized comparison between the optimal policy and the best-performing
-  baseline in each regime.
+* `scripts/reproduce_figures.py`: sweeps over `(p, f_0)` for fixed `m` and fidelity gap
+  `delta = f_T - f_0`, evaluates the optimal policy and all three baselines at each point, and
+  produces:
+  * `figures/advantage_per_baseline.png` — `(T_baseline - T_opt) / T_baseline` as a heatmap
+    over the `(p, f_0)` plane, one panel per baseline policy (pumping, nested, greedy);
+  * `figures/advantage_heatmap.png` — the properly-normalized joint comparison,
+    `(T_min(baselines) - T_opt) / T_min(baselines)`, over the same `(p, f0)` plane, annotated
+    with which baseline is best in each regime;
+  * `figures/Topt_vs_m.png` — `T_opt` vs. `m` (number of memories per node) for several values
+    of `p`, at fixed `f_0` and `delta`, illustrating how the optimal policy's expected waiting
+    time decreases as more memories become available.
 * `notebooks/walkthrough.ipynb`: a narrated, minimal example — build an MDP for a single
-  `(p, m, f0, delta)`, solve it, compare against the three baselines, and inspect the
+  `(p, m, f_0, f_T)`, solve it, compare against the three baselines, and inspect the
   resulting optimal policy table.
-
-## Tests
-
-`tests/test_policies.py` checks several claims made in the paper directly against the code,
-so that a regression in the MDP or policy construction trips a test rather than silently
-changing a previously published number:
-
-* monotonicity and lower-boundedness of the distillation map (used in the finite-state-space
-  proof, `docs/appendix_derivations.md`);
-* for `m = 2`, the value-iteration-optimal policy reduces exactly to the pumping protocol,
-  independent of `p`;
-* the reachable state space is finite for `fT < f_infty(f0)`;
-* the two baseline-evaluation methods in `src/policy_eval.py` agree with each other;
-* the optimal policy is never worse than any baseline, for every parameter combination tested.
-
-Run with:
-
-```bash
-pytest tests/ -v
-```
 
 
 ## Citing this work
