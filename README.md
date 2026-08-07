@@ -21,10 +21,9 @@ space, and all transition probabilities in the Bellman equations) and then apply
 iteration on top of it, so that the MDP and its solver are cleanly separated.
 
 * `src/mdp.py`: builds the model — the distillation fidelity/success-probability map, the
-  exact closure of reachable fidelity levels (finite if and only if `fT < f_infty(f0)`, see
-  `docs/appendix_derivations.md`), the state and action spaces, and the transition table `P`.
+  exact closure of reachable fidelity levels, the state and action spaces, and the transition table `P`.
   This module is shared by everything below, so the MDP is only ever constructed one way.
-* `src/optimal_policy.py`: finds the optimal policy using value iteration with `gamma=1`.
+* `src/optimal_policy.py`: finds the optimal policy using value iteration.
   This can only be used after building the model with `src/mdp.py::build_mdp()`. An example
   of how to use this script can be found by running `python src/optimal_policy.py` directly.
 
