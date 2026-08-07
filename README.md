@@ -1,7 +1,7 @@
 # Optimizing Entanglement Distillation Policies via Markov Decision Process Formulation
 
 Code accompanying the paper *"Optimizing Entanglement Distillation Policies via
-Markov Decision Process Formulation"* (add venue / arXiv link / DOI once available).
+Markov Decision Process Formulation"* (arXiv:2606.14908).
 
 This repository formulates the problem of choosing when to generate vs.
 distill entangled pairs across `m` quantum memories as a finite-state,
@@ -107,8 +107,6 @@ waiting time, both giving identical answers (see
 Both are provided so results can be cross-checked against each other.
 
 ## Citing this work
-
-Cite:
 
 ```bibtex
 @misc{bhavsar2026optimizingentanglementdistillationpolicies,
