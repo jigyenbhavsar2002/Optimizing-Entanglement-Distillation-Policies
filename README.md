@@ -80,30 +80,17 @@ Run with:
 pytest tests/ -v
 ```
 
-## Installation
-
-```bash
-git clone https://github.com/<your-username>/entanglement-distillation-mdp.git
-cd entanglement-distillation-mdp
-pip install -r requirements.txt
-```
-
-Requires Python ≥ 3.9, `numpy`, `matplotlib`; `pytest` is only needed to run the test suite.
 
 ## Citing this work
 
-See [`CITATION.cff`](CITATION.cff), or cite:
-
 ```bibtex
-@article{yourbibkey,
-  title   = {Optimizing Entanglement Distillation Policies via Markov Decision Process Formulation},
-  author  = {Your Name and Coauthors},
-  journal = {Journal name},
-  year    = {2026},
-  doi     = {10.xxxx/xxxxx}
+@misc{bhavsar2026optimizingentanglementdistillationpolicies,
+      title={Optimizing Entanglement Distillation Policies via Markov Decision Process Formulation}, 
+      author={Jigyen Bhavsar and Rajni Bala and Siddhartha Santra},
+      year={2026},
+      eprint={2606.14908},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2606.14908}, 
 }
 ```
-
-## License
-
-MIT (see [`LICENSE`](LICENSE)).
