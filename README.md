@@ -29,20 +29,13 @@ iteration on top of it, so that the MDP and its solver are cleanly separated.
 
 ## Baseline policies
 
-We implement three fixed (non-optimized) policies commonly used in the entanglement
-purification and quantum repeater literature, so the optimal policy can be compared against
+We implement three fixed policies commonly used in the entanglement
+distillation literature, so the optimal policy can be compared against
 them under an identical MDP formulation and transition model.
 
 * `src/baselines.py`: builds the pumping, nested, and greedy policies as fixed action tables
   over the same state space produced by `src/mdp.py`.
-* `src/policy_eval.py`: evaluates a fixed policy's expected waiting time two independent ways
-  — (1) `exact_policy_evaluation()`, which computes the absorption probability of reaching the
-  target under the policy and then solves for the exact expected time directly via a linear
-  solve on the "proper" (absorbing) subset of states; and (2) `fixed_policy_value_iteration()`,
-  which evaluates the same fixed policy using the identical `gamma=1` value-iteration recursion
-  used for the optimal policy, for a method that is structurally uniform across all four
-  policies. Both methods agree to numerical precision wherever the policy is proper (i.e.,
-  does not deadlock); see `tests/test_policies.py`.
+* `src/policy_eval.py`: evaluates a fixed policy's expected waiting time as `src/optimal_policy.py` for all three baseline policies.
 
 ## Data analysis and results
 
@@ -50,7 +43,7 @@ The following script and notebook can be used to generate the results that appea
 paper. Cached grid outputs are stored under `data/results/` so that figures can be
 regenerated without rerunning every parameter sweep from scratch.
 
-* `scripts/reproduce_figures.py`: sweeps over `(p, f0)` for fixed `m` and `delta`, evaluates
+* `scripts/reproduce_figures.py`: sweeps over `(p, f0)` for fixed `m`, `f0`, and `fT`, evaluates
   the optimal policy and all three baselines at each point, and plots
   `(T_min(baselines) - T_opt) / T_min(baselines)` as a heatmap over the `(p, f0)` plane —
   the properly-normalized comparison between the optimal policy and the best-performing
