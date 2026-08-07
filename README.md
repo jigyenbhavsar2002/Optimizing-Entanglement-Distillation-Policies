@@ -52,8 +52,7 @@ regenerated without rerunning every parameter sweep from scratch.
     `(T_min(baselines) - T_opt) / T_min(baselines)`, over the same `(p, f0)` plane, annotated
     with which baseline is best in each regime;
   * `figures/Topt_vs_m.png` — `T_opt` vs. `m` (number of memories per node) for several values
-    of `p`, at fixed `f_0` and `delta`, illustrating how the optimal policy's expected waiting
-    time decreases as more memories become available.
+    of `p`, at fixed `f_0` and `delta`.
 * `notebooks/walkthrough.ipynb`: a narrated, minimal example — build an MDP for a single
   `(p, m, f_0, f_T)`, solve it, compare against the three baselines, and inspect the
   resulting optimal policy table.
